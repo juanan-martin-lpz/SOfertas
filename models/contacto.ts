@@ -1,24 +1,31 @@
-import { Document, Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-import Nota from './nota';
+import { notaSchema, Nota } from './nota';
 
-export default interface Contacto extends Document {
+export interface Contacto {
 
-    nombre: string; //{type: String, required: true},
-    //{type: String, required: true},
-    email: string; //{type: String, required: false},
-     //{type: String, required: false},
-    telefono: string; //{type: String, required: false},
-  //{type: String, required: false},
-    linkedin: string; //{type: String, required: false},
- //{type: String, required: false},
-    twitter: string; //{type: String, required: false},
-   //{type: String, required: false},
-    facebook: string; //{type: String, required: false},
-  //{type: String, required: false},
-    web: string; //{type: String, required: false},   
-       //{type: String, required: false},   
-    notas: Nota[]; //{type: Schema.Types.ObjectId , ref: Nota, required: false}
-     //{type: Schema.Types.ObjectId , ref: Nota, required: false}
-    
+    nombre: string;
+    email: string;
+    telefono: string;
+    linkedin: string;
+    twitter: string;
+    facebook: string;
+    web: string;
+    notas: Nota[];
+    //{type: Schema.Types.ObjectId , ref: Nota, required: false}
+
 }
+
+export const contactoSchema = new Schema<Contacto>({
+    nombre: { type: String, required: true },
+    email: { type: String, required: false },
+    telefono: { type: String, required: false },
+    linkedin: { type: String, required: false },
+    twitter: { type: String, required: false },
+    facebook: { type: String, required: false },
+    web: { type: String, required: false },
+    notas: [notaSchema]
+});
+
+export const ContactoModel = model<Contacto>('Contacto', contactoSchema);
+

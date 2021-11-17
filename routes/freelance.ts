@@ -1,24 +1,20 @@
 import * as express from 'express';
-import * as admin from 'firebase-admin';
 import Freelance from '../models/freelance';
-
-import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
 
-const db = admin.firestore();
-
 router.get('/', async (req, res, next) => {
-   
+    /*
     const freelance = db.collection('freelance');
     const docsSnapshot = await freelance.get();
 
     const freelancers = docsSnapshot.docs.map(doc => doc.data()); 
-    res.json( freelancers );    
+    res.json( freelancers );
+    */
 });
 
 router.get('/:id', async (req, res, next) => {
-
+    /*
     const fl  = req.params.id;
 
     const freelance = await db.collection('freelance').doc(fl);
@@ -36,11 +32,12 @@ router.get('/:id', async (req, res, next) => {
             message: 'Error al recuperar el Freelance',
         });
     }
+    */
 });
 
 
 router.post('/', async (req, res, next) => {
-   
+    /*
     const fl: Freelance = req.body;
 
     const freelance = db.collection('freelance');
@@ -61,11 +58,11 @@ router.post('/', async (req, res, next) => {
             errors: e
         });
     })
-
+    */
 });
 
 router.put('/', async (req, res) => {
-   
+    /*
     const fl: Freelance = req.body;
     const freelance = await db.collection('freelance').doc(fl.id);
   
@@ -95,10 +92,11 @@ router.put('/', async (req, res) => {
     }   
 
     return res;
+    */
 });
 
 router.delete('/', async (req, res) => {
-   
+    /*
     const fl: Freelance = req.body;
     const freelance = await db.collection('freelance').doc(fl.id);
     
@@ -126,6 +124,7 @@ router.delete('/', async (req, res) => {
     }
     
     return res;
+    */
 });
 
 

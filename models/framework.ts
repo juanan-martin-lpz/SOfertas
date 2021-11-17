@@ -1,7 +1,13 @@
-import { Document, Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-export default interface Framework extends Document {
-    
+export interface Framework extends Document {
+
     nombre: string;
-    
+
 }
+
+export const frameworkSchema = new Schema<Framework>({
+    nombre: { type: String, required: true }
+});
+
+export const FrameworkModel = model('Framework', frameworkSchema);

@@ -1,10 +1,18 @@
-import { Document, Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-import Framework from './framework';
+import { FrameworkModel, Framework, frameworkSchema } from './framework';
 
-export default interface Lenguaje extends Document {
-   
+export interface Lenguaje {
+
     nombre: string;
     frameworks: [Framework];
 
 }
+
+export const lenguajeSchema = new Schema<Lenguaje>({
+    nombre: { type: String, required: true },
+    frameworks: [frameworkSchema]
+});
+
+export const LenguajeModel = model('Lenguaje', frameworkSchema);
+

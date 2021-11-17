@@ -2,15 +2,12 @@ import * as express from 'express';
 
 
 
-import { v4 as uuidv4 } from 'uuid';
-
 const router = express.Router();
-
-const db = admin.firestore();
 
 
 router.get('/:empresa', async (req, res) => {
 
+    /*
     const fl  = req.params.empresa;
 
     const contactos = await db.collection('empresa').doc(fl).collection('contactos');
@@ -28,11 +25,13 @@ router.get('/:empresa', async (req, res) => {
             message: 'Error al recuperar los contactos Freelance',
         });
     }
+    */
 });
 
 
 router.post('/:empresa', async (req, res) => {
 
+    /*
     const contacto = req.body;
     const fl = req.params.empresa;
 
@@ -55,11 +54,12 @@ router.post('/:empresa', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 
 router.put('/:empresa/:id', async (req, res) => {
-    
+    /*
     const contacto = req.body;
 
     const id = req.params.id;
@@ -82,13 +82,13 @@ router.put('/:empresa/:id', async (req, res) => {
             errors: err
         });
     });
-
+    */
 });
 
 
 router.delete('/:empresa/:id', async (req, res) => {
-    
-    
+
+    /*
     const id = req.params.id;
     const fl = req.params.empresa;
 
@@ -106,6 +106,7 @@ router.delete('/:empresa/:id', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 

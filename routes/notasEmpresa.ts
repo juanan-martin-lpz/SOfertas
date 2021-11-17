@@ -1,21 +1,16 @@
 import * as express from 'express';
-import * as admin from 'firebase-admin';
 
 
-import Empresa from '../models/empresa';
-import Nota from '../models/nota';
+import { Empresa } from '../models/empresa';
+import { Nota } from '../models/nota';
 
 
-
-import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
 
-const db = admin.firestore();
-
 
 router.get('/:empresa', async (req, res) => {
-
+    /*
     const fl  = req.params.empresa;
 
     const notas = await db.collection('empresa').doc(fl).collection('notas').get();
@@ -34,11 +29,12 @@ router.get('/:empresa', async (req, res) => {
             message: 'Error al recuperar las Notas del Empresa',
         });
     }
+    */
 });
 
 
 router.post('/:empresa', async (req, res) => {
-
+    /*
     const nota = req.body;
     const fl = req.params.empresa;
 
@@ -61,11 +57,12 @@ router.post('/:empresa', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 
 router.put('/:empresa/:id', async (req, res) => {
-    
+    /*
     const nota = req.body;
 
     const id = req.params.id;
@@ -88,13 +85,13 @@ router.put('/:empresa/:id', async (req, res) => {
             errors: err
         });
     });
-
+    */
 });
 
 
 router.delete('/:empresa/:id', async (req, res) => {
-    
-    
+
+    /*
     const id = req.params.id;
     const fl = req.params.empresa;
 
@@ -112,6 +109,7 @@ router.delete('/:empresa/:id', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 

@@ -1,19 +1,31 @@
-import { Document, Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 
-import Nota from './nota';
-import Contacto from './contacto';
-import SeguimientoEmpresa from './seguimientoEmpresa';
-import OfertasEmpresa from './ofertasempresa';
+import { notaSchema, NotaModel, Nota } from './nota';
+import { contactoSchema, ContactoModel, Contacto } from './contacto';
+import { seguimientoEmpresaSchema, SeguimientoEmpresaModel, SeguimientoEmpresa } from './seguimientoEmpresa';
+import { ofertasEmpresaSchema, OfertasEmpresaModel, OfertasEmpresa } from './ofertasempresa';
 
 
 
-export default interface Empresa extends Document {
-    
-    contactoPrincipal: Contacto;
-    notas: [Nota];
-    ofertas: [OfertasEmpresa];
-    seguimientos: [SeguimientoEmpresa]; 
-    contactosAdicionales: Contacto[];
-    
+export interface Empresa {
+
+    nombre: String;
+    contactoPrincipal?: Contacto;
+    notas?: Nota[];
+    ofertas?: OfertasEmpresa[];
+    seguimientos?: SeguimientoEmpresa[];
+    contactosAdicionales?: Contacto[];
+
 }
+
+export const empresaSchema = new Schema<Empresa>({
+    nombre: String,
+    contactoPrincipal: contactoSchema,
+    notas: [notaSchema],
+    ofertas: [ofertasEmpresaSchema],
+    seguimientos: [seguimientoEmpresaSchema],
+    contactosAdicionales: [contactoSchema]
+});
+
+export const EmpresaModel = model<Empresa>('Empresa', empresaSchema);

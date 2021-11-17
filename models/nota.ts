@@ -1,9 +1,15 @@
-import { Document, Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-export default interface Nota extends Document {
+export interface Nota {
 
-    texto: string; //{type: String, required: true}
-      //{type: String, required: true}
+    texto: string;
 }
+
+export const notaSchema = new Schema<Nota>({
+    texto: { type: String, required: true },
+});
+
+export const NotaModel = model<Nota>('Nota', notaSchema);
+
 
 

@@ -1,21 +1,17 @@
 import * as express from 'express';
-import * as admin from 'firebase-admin';
 
 
 import Freelance from '../models/freelance';
-import Contacto from '../models/contacto';
+import { Contacto } from '../models/contacto';
 
 
-
-import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();
-
-const db = admin.firestore();
 
 
 router.get('/:freelance', async (req, res) => {
 
+    /*
     const fl  = req.params.freelance;
 
     const contactos = await db.collection('freelance').doc(fl).collection('contactos').get();
@@ -34,11 +30,12 @@ router.get('/:freelance', async (req, res) => {
             message: 'Error al recuperar los contactos Freelance',
         });
     }
+    */
 });
 
 
 router.post('/:freelance', async (req, res) => {
-
+    /*
     const contacto = req.body;
     const fl = req.params.freelance;
 
@@ -61,11 +58,12 @@ router.post('/:freelance', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 
 router.put('/:freelance/:id', async (req, res) => {
-    
+    /*
     const contacto = req.body;
 
     const id = req.params.id;
@@ -88,13 +86,13 @@ router.put('/:freelance/:id', async (req, res) => {
             errors: err
         });
     });
-
+    */
 });
 
 
 router.delete('/:freelance/:id', async (req, res) => {
-    
-    
+
+    /*
     const id = req.params.id;
     const fl = req.params.freelance;
 
@@ -112,6 +110,7 @@ router.delete('/:freelance/:id', async (req, res) => {
             errors: err
         });
     });
+    */
 });
 
 
