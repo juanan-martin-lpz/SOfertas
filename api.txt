@@ -1,0 +1,74 @@
+METODO  RUTA                                                    PARAMETROS                      BODY                    RESPUESTA                       FUNCIONALIDAD                           ARCHIVO
+-------+-------------------------------------------------------+-------------------------------+-----------------------+-------------------------------+---------------------------------------+---------------------------------
+GET     /empresas                                               criterio                                                COLECCION                       obtenerEmpresas                         negocioEmpresas
+POST    /empresas/new                                                                           {json}                  OBJETO                          nuevaEmpresa                            negocioEmpresas
+POST    /empresas/edit/:id                                                                      {json}                  OBJETO                          editarEmpresa                           negocioEmpresas
+
+GET     /empresas/:id                                                                                                   OBJECTO                         obtenerEmpresa                          negocioEmpresas
+GET     /empresas/:id/notas                                                                                             COLECCION                       obtenerNotasEmpresa                     negocioEmpresas
+GET     /empresas/:id/ofertas                                                                                           COLECCION                       obtenerOfertasEmpresa                   negocioEmpresas
+GET     /empresas/:id/seguimientos                                                                                      COLECCION                       obtenerSeguimientosEmpresa              negocioEmpresas
+GET     /empresas/:id/contactos                                                                                         COLECCION                       obtenerContactosEmpresa                 negocioEmpresas
+
+GET     /empresas/:id/notas/:id                                                                                         OBJETO                          obtenerNotaEmpresa                      notasRouter
+POST    /empresas/:id/notas/new                                                                 {json}                  OBJETO                          nuevaNotaEmpresa                        notasRouter
+POST    /empresas/:id/notas/:id/edit                                                            {json}                  OBJETO                          editarNotaEmpresa                       notasRouter
+
+GET     /empresas/:id/ofertas/:id                                                                                       OBJETO                          obtenerOfertaEmpresa                    ofertasRouter
+POST    /empresas/:id/ofertas/new                                                               {json}                  OBJETO                          nuevaOfertaEmpresa                      ofertasRouter
+POST    /empresas/:id/ofertas/:id/edit                                                          {json}                  OBJETO                          editarOfertaEmpresa                     ofertasRouter
+
+GET     /empresas/:id/seguimientos/:id                                                                                  OBJETO                          obtenerSeguimientoEmpresa               seguimientosRouter
+POST    /empresas/:id/seguimientos/new                                                          {json}                  OBJETO                          nuevoSeguimientoEmpresa                 seguimientosRouter
+POST    /empresas/:id/seguimientos/:id/edit                                                     {json}                  OBJETO                          editarSeguimientoEmpresa                seguimientosRouter
+
+GET     /empresas/:id/contactos/:id                                                                                     OBJETO                          obtenerContactoEmpresa                  contactosRouter
+POST    /empresas/:id/contactos/new                                                             {json}                  OBJETO                          nuevoContactoEmpresa                    contactosRouter
+POST    /empresas/:id/contactos/:id/edit                                                        {json}                  OBJETO                          editarContactoEmpresa                   contactosRouter
+
+GET     /ofertaempresa/:id/entrevista/:id                                                                               OBJETO                          obtenerEntrevistaOfertaEmpresa          ofertaEmpresaRouter
+POST    /ofertaempresa/:id/entrevista/new                                                       {json}                  OBJETO                          nuevaEntrevistaOfertaEmpresa            ofertaEmpresaRouter
+POST    /ofertaempresa/:id/entrevista/:id/edit                                                  {json}                  OBJETO                          editarEntrevistaOfertaEmpresa           ofertaEmpresaRouter
+
+GET     /ofertaempresa/:id/lenguaje/:id                                                                                 OBJETO                          obtenerLenguajeOfertaEmpresa            ofertaEmpresaRouter
+POST    /ofertaempresa/:id/lenguaje/new                                                         {json}                  OBJETO                          nuevoLenguajeOfertaEmpresa              ofertaEmpresaRouter
+POST    /ofertaempresa/:id/lenguaje/:id/edit                                                    {json}                  OBJETO                          editarLenguajeOfertaEmpresa             ofertaEmpresaRouter
+
+GET     /ofertaempresa/:id/framework/:id                                                                                OBJETO                          obtenerFrameworkOfertaEmpresa           ofertaEmpresaRouter
+POST    /ofertaempresa/:id/framework/new                                                        {json}                  OBJETO                          nuevoFrameworkOfertaEmpresa             ofertaEmpresaRouter
+POST    /ofertaempresa/:id/framework/:id/edit                                                   {json}                  OBJETO                          editarFrameworkOfertaEmpresa            ofertaEmpresaRouter
+
+GET     /lenguajes/                                             criterio                                                COLECCION                       obtenerLenguajes                        lenguajesRouter
+GET     /lenguajes/:id/                                                                                                 OBJETO                          obtenerLenguaje                         lenguajesRouter
+POST    /lenguajes/:id/new                                                                      {json}                  OBJETO                          nuevoLenguaje                           lenguajesRouter
+POST    /lenguajes/:id/edit                                                                     {json}                  OBJETO                          editarLenguaje                          lenguajesRouter
+
+
+
+JSON
+
+ERROR
+
+{
+  error: [string]
+}
+
+COLECCIONES
+
+ok contiene si hubo exito o error
+data contiene la coleccion a devolver o un objeto error
+
+{
+  ok: true,
+  data: [Object]
+}
+
+OBJETOS
+
+Si hubo exito, ok sera true, si no sera false
+data contiene el objeto solicitado o un objeto error
+
+{
+  ok: true,
+  data: Object
+}
